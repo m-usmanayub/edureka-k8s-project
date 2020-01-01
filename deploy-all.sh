@@ -13,7 +13,9 @@ echo "*               https://docs.aws.amazon.com/eks/latest/userguide/efs-csi.h
 echo "*                                                                                                    *"
 echo "*                                                                                                    *"
 echo "******************************************************************************************************"
-chmod -R +x *.sh
+echo " MAKE SURE YOU RUN THIS SCRIPT IN THE MAIN DIRECTORY OF PROJECT FILES"
+
+find . -name "*.sh" -type f | xargs chmod +x
 echo "Step 1: Deploying the AWS EFS CSI Storage Driver. Make sure you have whitelisted the EKS Cluster VPC "
 ./efs-csi.sh
 echo
@@ -45,9 +47,10 @@ echo "*          Login to the database using kubectl exec it db-pod -- mysql -ur
 echo "*                        After login run the following commnads                                      *"
 echo "*                                                                                                    *"
 echo "*                                                1.                                                  *"
-echo "*                                      Create database edureka;                                      *"
+echo "*                                      create database edureka;                                      *"
+echo "*                                             use edureka;                                           *"
 echo "*                                                2.                                                  *"
-echo "*                       Create table edureka(name varchar(20), email varchar(20));                   *"
+echo "*                       create table edureka(name varchar(20), email varchar(20));                   *"
 echo "*                                                3.                                                  *"
 echo "*                                               exit                                                 *"
 echo "*                                                                                                    *"
