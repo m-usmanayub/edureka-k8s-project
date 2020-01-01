@@ -16,7 +16,7 @@ nodeGroups:
     #   dedicated: "fe:NoSchedule"
     ssh:
       allow: true
-      publicKey: ~/.ssh/aws_ida_rsa.pub
+      publicKeyPath: ~/.ssh/aws_ida_rsa.pub
   - name: ng-2
     instanceType: t2.micro
     minSize: 1
