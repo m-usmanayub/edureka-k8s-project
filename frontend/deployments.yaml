@@ -37,7 +37,6 @@ spec:
         secret:
           secretName: db-secret
 ---
-
 apiVersion: v1
 kind: Service
 metadata:
@@ -51,13 +50,12 @@ spec:
  type: NodePort
 
 ---
-
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: users-deploy
 spec:
-  replicas: 3
+  replicas: 2
   selector:
     matchLabels:
       app: users-frontend

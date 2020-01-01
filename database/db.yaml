@@ -39,19 +39,19 @@ spec:
           exec:
           command:
           - ls
-      env: 
-      - name: MYSQL_ROOT_PASSWORD
-        valueFrom: 
-          secretKeyRef: 
-            name: mysql
-            key: password
-      volumeMounts:
+        env: 
+        - name: MYSQL_ROOT_PASSWORD
+          valueFrom: 
+            secretKeyRef: 
+              name: mysql
+              key: password
+        volumeMounts:
+        - name: pvol
+          mountPath: /var/lib/mysql
+      volumes:
       - name: pvol
-        mountPath: /var/lib/mysql
-    volumes:
-    - name: pvol
-      persistentVolumeClaim: 
-        claimName: efs-claim
+        persistentVolumeClaim: 
+          claimName: efs-claim
 ---
 apiVersion: v1
 kind: Service

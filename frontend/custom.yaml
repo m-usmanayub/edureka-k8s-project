@@ -12,7 +12,7 @@ spec:
     app.kubernetes.io/part-of: ingress-nginx
   ports:
   - port: 80
-    targetPort: 8080
+    targetPort: 80
     name: http
 ---
 apiVersion: apps/v1
@@ -34,6 +34,8 @@ spec:
         app.kubernetes.io/name: nginx-custom
         app.kubernetes.io/part-of: ingress-nginx
     spec:
+      nodeSelector:
+        role: frontend
       containers:
       - name: nginx-custom
         image: musmanayub/nginx-custom:v1

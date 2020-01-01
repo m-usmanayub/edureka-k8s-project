@@ -1,5 +1,5 @@
 #1. Download all the relevant CLI tools for your OS. 
-#  a. aws cli (install procedure for Ubuntu)
+#  a. aws cli (Install procedure for Ubuntu)
   pip3 --version
   python3 --version
 #  if the above commands don't work install
@@ -18,8 +18,8 @@ mkdir ~/.aws
 touch ~/.aws/credentials
 vim ~/.aws/credentials
 [default]
-aws_access_key_id=
-aws_secret_access_key=
+aws_access_key_id=<copy and paste from the UI>
+aws_secret_access_key=<copy and paste from the UI>
 
 touch ~/.aws/config
 cat << 'EOF' >> ~/.aws/config
@@ -41,16 +41,16 @@ echo 'export PATH=$HOME/bin:$PATH' >> ~/.bashrc
 aws-iam-authenticator help
 ###################################################################################################
 #2. Deploy EKS Cluster using eks.yaml
+eksctl create cluster -f eks.yaml
 ###################################################################################################
 #3. Create an EFS Storage manually
-###################################################################################################
 #To create an Amazon EFS file system for your Amazon EKS cluster
 #Locate the VPC ID for your Amazon EKS cluster. You can find this ID in the Amazon EKS console, or you can use the following AWS CLI command.
-aws eks describe-cluster --name cluster_name --query "cluster.resourcesVpcConfig.vpcId" --output text
+aws eks describe-cluster --name ekscluster --query "cluster.resourcesVpcConfig.vpcId" --output text
 #Output:
-vpc-exampledb76d3e813
+vpc-0b9d876ba6f5f69c9
 #Locate the CIDR range for your cluster's VPC. You can find this in the Amazon VPC console, or you can use the following AWS CLI command.
-aws ec2 describe-vpcs --vpc-ids vpc-exampledb76d3e813 --query "Vpcs[].CidrBlock" --output text
+aws ec2 describe-vpcs --vpc-ids vpc-0b9d876ba6f5f69c9 --query "Vpcs[].CidrBlock" --output text
 #Output:
 192.168.0.0/16
 #Create a security group that allows inbound NFS traffic for your Amazon EFS mount points.
@@ -77,4 +77,5 @@ aws ec2 describe-vpcs --vpc-ids vpc-exampledb76d3e813 --query "Vpcs[].CidrBlock"
 #If your containers are not running as root, you must change the Amazon EFS file system permissions to allow other users to modify the file system. 
 #For more information, see Working with Users, Groups, and Permissions at the Network File System (NFS) Level in the Amazon Elastic File System User Guide.
 ###################################################################################################
-4. Deploy Application using deploy-all.sh
+#4. Deploy Application using deploy-all.sh
+###################################################################################################
