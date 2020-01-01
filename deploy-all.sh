@@ -1,10 +1,5 @@
 
-
-
-
-
 echo "******************************************************************************************************"
-echo "*                                                                                                    *"
 echo "*                                                                                                    *"
 echo "*                                                                                                    *"
 echo "*              Please ensure EFS has been created correctly using the below link                     *"
@@ -42,8 +37,8 @@ echo
 echo "******************************************************************************************************"
 echo "*                                                                                                    *"
 echo "*                                                                                                    *"
-echo "*              You will be abe to Initialize the Database and table of MySQL                         *"
-echo "*          Login to the database using kubectl exec it db-pod -- mysql -uroot -p                     *"
+echo "*                     You must Initialize the Database and table of MySQL                            *"
+echo "*          Login to the database using kubectl exec it db-pod-0 -- mysql -uroot -p                   *"
 echo "*                        After login run the following commnads                                      *"
 echo "*                                                                                                    *"
 echo "*                                                1.                                                  *"
@@ -53,10 +48,20 @@ echo "*                                                2.                       
 echo "*                       create table edureka(name varchar(20), email varchar(20));                   *"
 echo "*                                                3.                                                  *"
 echo "*                                               exit                                                 *"
+echo "*                       OR run the script dbinit.sh once the خod is up and running                   *"
+echo "*                                                                                                    *"
 echo "*                                                                                                    *"
 echo "******************************************************************************************************"
 echo
-#kubectl exec -it db-pod -- mysql -uroot -p
+
+# PASS=edureka
+# kubectl exec -it db-pod-0 -- mysql -uroot -p${PASS} <<MYSQL_SCRIPT
+# CREATE DATABASE test2;
+# USE test2;
+# create table test2(name varchar(20), email varchar(20));
+# MYSQL_SCRIPT
+
+
 echo "Step5: Deploying frontends "
 ./frontend/frontend.sh
 
@@ -64,6 +69,7 @@ echo "Step 6: Deploying Ingress Controller and Ingress"
 
 ./ingress/ingress.sh
 
+echo "Wait and check if all the pods are up and running >> kubectl get pods --all-namespaces"
 # echo "******************************************************************************************************"
 # echo "*                                                                                                    *"
 # echo "*                                                                                                    *"
