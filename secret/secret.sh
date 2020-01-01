@@ -1,0 +1,1 @@
+kubectl create secret generic db-secret --from-file=hostname=hostname.txt --from-file=password=password.txt
