@@ -1,18 +1,17 @@
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  namespace: kube-system
-  name: "ingress"
+  name: ingress-edureka
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
-    nginx.ingress.kubernetes.io/add-base-url: "true"
-    kubernetes.io/ingress.class: "nginx"
-
-#    kubernetes.io/ingress.class: alb
+    # nginx.ingress.kubernetes.io/add-base-url: "true"
+    # kubernetes.io/ingress.class: "nginx"
+    # kubernetes.io/ingress.class: alb
   labels:
     app: nginx-ingress
 spec:
   rules:
+  - host: edureka.example.com  
     http:
       paths:
       - path: /admin

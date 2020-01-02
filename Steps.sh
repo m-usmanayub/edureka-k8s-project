@@ -1,3 +1,6 @@
+########################################################################################################
+THIS IS NOT A SCRIPT. DO NOT EXECUTE IT
+########################################################################################################
 #1. Download all the relevant CLI tools for your OS. 
 #  a. aws cli (Install procedure for Ubuntu)
   pip3 --version
