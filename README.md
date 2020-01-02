@@ -1,14 +1,20 @@
 # Deployment of K8s application with Ingress om AWS EKS with NFS Volume (EFS on AWS)
 
 ### An assignment from Edureka
+### Reference documentation
 
-1. Create an EKS instance on AWS with Ingress Controller.
+1. Create EKS Cluster using eksctl
+    >   Getting started with eksctl: [click here](https://docs.aws.amazon.com/eks/latest/userguide/getting-started-eksctl.html)
+    >   eksctl Reference Documentation: [click here](https://eksctl.io/usage/creating-and-managing-clusters/)
 
-   >    For step by step help: [click here](https://www.edureka.co/blog/kubernetes-ingress-controller-nginx)
+2. Create an Ingress Controller with AWS.
 
-2. Create an EFS on AWS so that database can be made persiste on it.
+   >    For step by step help: [click here](https://kubernetes.github.io/ingress-nginx/deploy/)
+   >    Reference Documentation: [click here](https://kubernetes.io/docs/concepts/services-networking/ingress/)
+   >    GitHub Repo: [click here](https://github.com/kubernetes/ingress-nginx)
 
-   >    For step by step help: [click here](https://docs.aws.amazon.com/efs/latest/ug/gs-step-two-create-efs-resources.html)
+3. Create an EFS on AWS so that database can be made persist on it.
 
-3. Run the following command, and follow the instructions.
-   >    ./deploy-all.sh
+   >    EKS EFS CSI Storage Driver and EFS Creation: [click here](https://docs.aws.amazon.com/eks/latest/userguide/efs-csi.html)
+
+4. Follow the steps in 0Steps.md and deploy-all.sh to provision the environment

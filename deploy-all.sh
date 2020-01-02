@@ -15,6 +15,7 @@ echo "Step 1: Deploying the AWS EFS CSI Storage Driver. Make sure you have white
 ./efs-csi.sh
 echo
 echo 
+sleep 120
 echo "EFS CSI Driver Deployed"
 #read -p "Please enter AWS EFS File system ID (example: fs-47a2c22e)" fs_id
 echo
