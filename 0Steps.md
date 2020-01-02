@@ -47,6 +47,14 @@ mkdir -p $HOME/bin && cp ./aws-iam-authenticator $HOME/bin/aws-iam-authenticator
 echo 'export PATH=$HOME/bin:$PATH' >> ~/.bashrc
 aws-iam-authenticator help
 ```
+### d. kubectl 
+```shell
+curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl
+$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)
+chmod +x ./kubectl
+sudo mv ./kubectl /usr/local/bin/kubectl
+kubectl version
+```
 
 ## 2. Deploy EKS Cluster using eks.yaml
 > Make sure you have opened the yaml file first to edit the Instance Type 
@@ -89,3 +97,6 @@ Output:
     5. Configure any optional settings for your file system, and then choose Next step and Create File System to finish.
 
 ## 4. Deploy Application using deploy-all.sh
+```shell
+chmod +x ./deploy.sh
+./deploy.sh
