@@ -1,13 +1,10 @@
-#########################################################################################
-## THIS IS NOT A SCRIPT. YOU CAN COPY AND PASTE SOME COMMANDS.
-#########################################################################################
 ## 1. Download all the relevant CLI tools for your OS. 
 ###  a. aws cli (Install procedure for Ubuntu)
 ```shell
   pip3 --version
   python3 --version
 ```
-**  if the above commands don't work install **
+**if the above commands don't work then install**
 ```shell
   sudo apt-get install python3
   curl -O https://bootstrap.pypa.io/get-pip.py
@@ -18,7 +15,7 @@
   pip3 install awscli --upgrade --user
   aws --version
 ```
-** Create an AWS user with Administrator Permissions on the account and note its Access Key and Secret access Key  **
+**Create an AWS user with Administrator Permissions on the account and note its Access Key and Secret access Key**
 
 *create two files*
 ```shell
@@ -50,12 +47,13 @@ mkdir -p $HOME/bin && cp ./aws-iam-authenticator $HOME/bin/aws-iam-authenticator
 echo 'export PATH=$HOME/bin:$PATH' >> ~/.bashrc
 aws-iam-authenticator help
 ```
-#########################################################################################
+
 ## 2. Deploy EKS Cluster using eks.yaml
+> Make sure you have opened the yaml file first to edit the Instance Type 
 ```shell
 eksctl create cluster -f eks.yaml
 ```
-#########################################################################################
+
 ## 3. Create an EFS Storage manually
 To create an Amazon EFS file system for your Amazon EKS cluster
 1. Locate the VPC ID for your Amazon EKS cluster. You can find this ID in the Amazon EKS console, or you can use the following AWS CLI command.
@@ -90,6 +88,4 @@ Output:
     4. For Security groups, add the security group that you created in the previous step to each mount target and choose Next step.
     5. Configure any optional settings for your file system, and then choose Next step and Create File System to finish.
 
-#########################################################################################
 ## 4. Deploy Application using deploy-all.sh
-#########################################################################################
