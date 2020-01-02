@@ -1,2 +1,2 @@
-kubectl create -f deployments.yaml
-kubectl create -f custom.yaml
+kubectl create -f ./frontend/deployments.yaml
+kubectl create -f ./frontend/custom.yaml

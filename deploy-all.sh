@@ -8,32 +8,26 @@ echo "*               https://docs.aws.amazon.com/eks/latest/userguide/efs-csi.h
 echo "*                                                                                                    *"
 echo "*                                                                                                    *"
 echo "******************************************************************************************************"
-echo " MAKE SURE YOU RUN THIS SCRIPT IN THE MAIN DIRECTORY OF PROJECT FILES"
+echo
+echo "*            MAKE SURE YOU RUN THIS SCRIPT IN THE MAIN DIRECTORY OF PROJECT FILES                    *"
 
 find . -name "*.sh" -type f | xargs chmod +x
 echo "Step 1: Deploying the AWS EFS CSI Storage Driver. Make sure you have whitelisted the EKS Cluster VPC "
-./efs-csi.sh
-echo
-echo 
+./efs-csi.sh 
 sleep 120
 echo "EFS CSI Driver Deployed"
 #read -p "Please enter AWS EFS File system ID (example: fs-47a2c22e)" fs_id
-echo
 #read -p "Please enter AWS Region (example: us-west-2)" aws_region
-echo
 #read -p "Please enter Domain name for ingress routing (example: your-domain.com)" your_domain
-echo
+echo "--------------------------------------------------------------------------------------------------------"
 echo "Step 2: Deploying Storage Class, Persistent Volume Claim and Persistent Volume for DB"
 ./pv/pv.sh
-
+echo "--------------------------------------------------------------------------------------------------------"
 echo "Step 3: 3Deploying the Database Secret to be injected to Frontends"
 ./secret/secret.sh
-
-echo "Secret has been created"
-
+echo "--------------------------------------------------------------------------------------------------------"
 echo "Step 4: Deploying Database and its Service"
 ./database/db.sh
-echo
 echo
 echo "******************************************************************************************************"
 echo "*                                                                                                    *"
@@ -53,26 +47,20 @@ echo "*                       OR run the script dbinit.sh once the خod is up an
 echo "*                                                                                                    *"
 echo "*                                                                                                    *"
 echo "******************************************************************************************************"
-echo
-
+echo "--------------------------------------------------------------------------------------------------------"
 # PASS=edureka
 # kubectl exec -it db-pod-0 -- mysql -uroot -p${PASS} <<MYSQL_SCRIPT
 # CREATE DATABASE test2;
 # USE test2;
 # create table test2(name varchar(20), email varchar(20));
 # MYSQL_SCRIPT
-
-
 echo "Step5: Deploying frontends "
 ./frontend/frontend.sh
-
+echo "--------------------------------------------------------------------------------------------------------"
 echo "Step 6: Deploying Ingress Controller and Ingress"
-
 ./ingress/ingress.sh
-
+echo "--------------------------------------------------------------------------------------------------------"
 echo "Wait and check if all the pods are up and running >> kubectl get pods --all-namespaces"
-
-
 echo "Check the AWS Load Balancer URL and try to Browse!!!"
 # echo "******************************************************************************************************"
 # echo "*                                                                                                    *"

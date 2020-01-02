@@ -1,1 +1,1 @@
-kubectl create -f ./db.yaml
+kubectl create -f ./database/db.yaml
