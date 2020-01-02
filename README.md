@@ -5,12 +5,15 @@
 
 1. Create EKS Cluster using eksctl
     >   Getting started with eksctl: [click here](https://docs.aws.amazon.com/eks/latest/userguide/getting-started-eksctl.html)
+    >
     >   eksctl Reference Documentation: [click here](https://eksctl.io/usage/creating-and-managing-clusters/)
 
 2. Create an Ingress Controller with AWS.
 
    >    For step by step help: [click here](https://kubernetes.github.io/ingress-nginx/deploy/)
+   >
    >    Reference Documentation: [click here](https://kubernetes.io/docs/concepts/services-networking/ingress/)
+   >
    >    GitHub Repo: [click here](https://github.com/kubernetes/ingress-nginx)
 
 3. Create an EFS on AWS so that database can be made persist on it.
