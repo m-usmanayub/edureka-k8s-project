@@ -70,6 +70,9 @@ echo "Step 6: Deploying Ingress Controller and Ingress"
 ./ingress/ingress.sh
 
 echo "Wait and check if all the pods are up and running >> kubectl get pods --all-namespaces"
+
+
+echo "Check the AWS Load Balancer URL and try to Browse!!!"
 # echo "******************************************************************************************************"
 # echo "*                                                                                                    *"
 # echo "*                                                                                                    *"
@@ -82,28 +85,3 @@ echo "Wait and check if all the pods are up and running >> kubectl get pods --al
 # echo "*                                                                                                    *"
 # echo "******************************************************************************************************"
 # read -p "Press any key to continue"
-
-echo "******************************************************************************************************"
-echo "*                                                                                                    *"
-echo "*                                       LAST REQUIREMENT                                             *"
-echo "*                                                                                                    *"
-echo "* The default backend page for the ingress, should be modified to have the following data: 'Custom   *"
-echo "*                                             Default Backend'                                       *"
-echo "*                                                                                                    *"
-echo "*               For custom ingress error page follow the steps in following article                  *"
-echo "* https://github.com/kubernetes/ingress-nginx/tree/master/docs/examples/customization/custom-errors  *"
-echo "\n\n\n\n"
-
-echo "*  Edit the nginx-ingress-controller Deployment and set the value of the --default-backend-service   *"
-echo "*                   flag to the name of the newly created error backend service                      *" 
-echo 
-echo 
-echo "*                              kubectl edit nginx-ingress-controller                                 *"
-echo "*                             --default-backend-service nginx-custom                                 *"
-echo 
-echo
-echo "*                        Edit the nginx-configuration ConfigMap and create                           *"
-echo "*                      the key custom-http-errors with a value of 404,503.                          *"
-echo "*                                                                                                    *"
-echo "*                                                                                                    *"
-echo "******************************************************************************************************"
